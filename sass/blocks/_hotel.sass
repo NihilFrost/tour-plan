@@ -31,6 +31,32 @@
         display: flex
         flex-direction: column
         justify-content: space-between
+.hotel-slider
+    // Почему то перелокализация данного куска кода в блок .hotel не работает и я не знаю почему. Здесь же - работает.
+    width: 728px
+    height: 450px
+    &__button
+        position: absolute
+        // Сдвигаем весь объект вниз на 50%:
+        top: 50%
+        // Возвращаем объект на половину своей высоты по шкале Y:
+        transform: translateY(-50%)
+        z-index: 10
+        width: 30px
+        height: 30px
+        border: none
+        background-color: transparent
+        cursor: pointer
+        outline: none
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 10px
+        &--next
+            right: 18px
+            background-image: url('../img/arrow-next.svg')
+        &--prev
+            left: 18px
+            background-image: url('../img/arrow-prev.svg')
 .stars
     flex-basis: 100%
 .offer
@@ -71,31 +97,6 @@
         right: 0
         background: linear-gradient(180deg, rgba(0, 122, 223, 0.48) 0%, rgba(255, 255, 255, 0.128) 100%)
         z-index: 9
-.slider
-    width: 728px
-    height: 450px
-    &-button
-        position: absolute
-        // Сдвигаем весь объект вниз на 50%:
-        top: 50%
-        // Возвращаем объект на половину своей высоты по шкале Y:
-        transform: translateY(-50%)
-        z-index: 10
-        width: 30px
-        height: 30px
-        border: none
-        background-color: transparent
-        cursor: pointer
-        outline: none
-        background-repeat: no-repeat
-        background-position: center
-        background-size: 10px
-        &--next
-            right: 18px
-            background-image: url('../img/arrow-next.svg')
-        &--prev
-            left: 18px
-            background-image: url('../img/arrow-prev.svg')
 .booking
     background-color: $dark
     color: $light

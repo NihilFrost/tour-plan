@@ -114,27 +114,30 @@
             <!-- /.hotel-info -->
 
             <div class="hotel-grid">
-                <div class="slider hotel__slider">
 
-                    <!-- Slider main container -->
-                    <div class="swiper-container">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Slides -->
-                            <div class="swiper-slide">
-                                <img class="swiper-slide__image" src="img/slide 1.jpg" alt="">
-                            </div>
+                <!-- ----------------------------------------------------------------------------- -->
 
+
+                <!-- Slider main container -->
+                <div class="swiper-container hotel-slider hotel__slider">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide hotel-slider__item">
+                            <img class="swiper-slide__image" src="img/slide 1.jpg" alt="">
                         </div>
 
-                        <!-- If we need navigation buttons -->
-                        <button class="slider-button slider-button--prev"></button>
-                        <button class="slider-button slider-button--next"></button>
-
                     </div>
-                    <!-- /.swiper-container -->
+
+                    <!-- If we need navigation buttons -->
+                    <button class="hotel-slider__button hotel-slider__button--prev"></button>
+                    <button class="hotel-slider__button hotel-slider__button--next"></button>
+
                 </div>
-                <!-- /.slider -->
+                <!-- /.swiper-container -->
+
+
+                <!-- ----------------------------------------------------------------------------- -->
 
                 <div class="hotel-right">
                     <div class="booking">
@@ -174,12 +177,7 @@
                     </div>
                     <!-- /.booking -->
                     <div class="map">
-                        <!-- <iframe
-                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A4275ba6a37e578e501e42ab2fe24bbe1f5609e0a555d36a6b21983d5ff6004bf&amp;source=constructor"
-                            width="347" height="213" frameborder="0"></iframe> -->
-                        <!-- <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3952.5522944508493!2d98.29790005320487!3d7.837115138711419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x305025650c33dbab%3A0xa67a542329d011e1!2z0J_RhdGD0LrQtdGCLCDQmtCw0YDQvtC9LCDQntGC0LXQu9GMINCl0LjQu9GC0L7QvQ!5e0!3m2!1sru!2sru!4v1615644422015!5m2!1sru!2sru"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+
                         <script type="text/javascript" charset="utf-8" async
                             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A4275ba6a37e578e501e42ab2fe24bbe1f5609e0a555d36a6b21983d5ff6004bf&amp;width=100%&amp;height=213&amp;lang=ru_RU&amp;scroll=true"></script>
                     </div>
@@ -206,9 +204,51 @@
             </form>
         </div>
         <!-- ./newsletter-wrapper -->
-
     </section>
     <!-- ./newsletter -->
+
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">What people thinks about us</h2>
+
+            <div class="swiper-container reviews-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="reviews-slider__item">
+                            <div class="reviews-slider__profile">
+                                <img src="img/reviews-avatar-1.jpg" alt="Photo: Megan Fox" class="reviews-slider__avatar">
+                                <h3 class="reviews-slider__username">Megan Fox</h3>
+                                <span class="reviews-slider__date">Stayed 18 Nov, 2019</span>
+                                <div class="rating">
+                                    <img src="img/star.svg" alt="star">
+                                    <img src="img/star.svg" alt="star">
+                                    <img src="img/star.svg" alt="star">
+                                    <img src="img/star.svg" alt="star">
+                                    <img src="img/star.svg" alt="star">
+                                </div>
+                                <!-- /.rating -->
+                            </div>
+                            <!-- /.reviews-slider__profile -->
+                        </div>
+                        <!-- /.reviews-slider__item -->
+                    </div>
+                    <!-- /.swiper-slide -->
+
+                </div>
+                <!-- /.swiper-wrapper -->
+
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <!-- /.reviews-slider -->
+
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.reviews -->
+
+
 
 
 
