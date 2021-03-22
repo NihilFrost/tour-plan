@@ -6,73 +6,76 @@ require 'phpmailer/Exception.php';
 
 // Переменные, которые отправляет пользователь
 
-if (isset($_POST['name']))
+$back = $_SERVER['HTTP_REFERER'];
+
+if ((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['message']))) {
+//    Если в $_POST отправлены поля name, phone и message:
+
     $name = $_POST['name'];
-else
-    $name = '';
-if (isset($_POST['phone']))
     $phone = $_POST['phone'];
-else
-    $phone = '';
-if (isset($_POST['message']))
     $message = $_POST['message'];
-else
-    $message = '';
-if (isset($_POST['file'])) {
-    $file = $_POST['file'];
-    $rfile = "Файл прикреплён.";
-} else
-    $rfile = "Файл не прикреплён.";
+    $formActive = 2;
+    $email = 'foster18@yandex.ru';
 
-if ((!isset($_POST['name'])) && (!isset($_POST['phone'])) && (!isset($_POST['message']))) 
-	die("Входные данные пусты. Скрипт завершается.");
+    if (($name=='') || ($phone=='') || ($message=='')) {
+        echo "<meta http-equiv=\"refresh\" content='0; url=$back'>";
+        exit();
+    }
 
+    // Формирование самого письма
+    $title = "Новое обращение Best Tour Plan";
+    $body = "
+    <h2>Новое обращение</h2>
+    <b>Имя:</b> $name<br>
+    <b>Телефон:</b> $phone<br><br>
+    <b>Сообщение:</b><br>$message
+    ";
 
-// Формирование самого письма
-$title = "Новое обращение Best Tour Plan";
-$body = "
-<h2>Новое обращение</h2>
-<b>Имя:</b> $name<br>
-<b>Телефон:</b> $phone<br><br>
-<b>Сообщение:</b><br>$message
-";
+}  else if ((isset($_POST['email']))) {
+//    В $_POST пришёл email на подписку
+
+    $email = $_POST['email'];
+
+    if ($email=='') {
+        echo "<meta http-equiv=\"refresh\" content='0; url=$back'>";
+        exit();
+    }
+
+    $formActive = 1;
+    $title = "Подписка";
+    $body = "
+    <h2>Подписка оформлена!</h2>
+    <br>Ваш e-mail был добавлен в базу рассылок. Если это были не вы, 
+    пожалуйста, <a href=$back"."unsubscribe.html>кликните сюда.</a>
+    ";
+
+} else {
+    die("Все входные данные пусты. Скрипт завершается.");
+}
 
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 try {
     $mail->isSMTP();
     $mail->CharSet = "UTF-8";
-    $mail->SMTPAuth   = true;
-    $mail->SMTPDebug = 4;
-    $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
+    $mail->SMTPAuth = true;
+    $mail->SMTPDebug = 2;
+    $mail->Debugoutput = function ($str, $level) {
+        $GLOBALS['status'][] = $str;
+    };
 
     // Настройки вашей почты, с которой пойдёт отправка писем
-    $mail->Host       = 'ssl://smtp.yandex.ru'; // SMTP сервера вашей почты
-    $mail->Username   = 'werfoster@yandex.ru'; // Логин на почте
-    $mail->Password   = 'ipost516'; // Пароль на почте
+    $mail->Host = 'ssl://smtp.yandex.ru'; // SMTP сервера вашей почты
+    $mail->Username = 'werfoster@yandex.ru'; // Логин на почте
+    $mail->Password = 'пароль'; // Пароль на почте
     $mail->SMTPSecure = 'ssl';
-    $mail->Port       = 465;
-    $mail->setFrom('werfoster@yandex.ru', 'Пётр Васильевич'); // Адрес самой почты и имя отправителя. Откуда отправляем это письмо
+    $mail->Port = 465;
+    $mail->setFrom('werfoster@yandex.ru', 'Пётр Васильевич'); // Адрес откуда отправляем письмо
 
     // Получатель письма
-    $mail->addAddress('foster18@yandex.ru');
+    $mail->addAddress($email);
     // $mail->addAddress('youremail@gmail.com'); // Ещё один, если нужен
 
-
-
-    // Прикрипление файлов к письму
-    if (!empty($file['name'][0])) {
-        for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-            $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-            $filename = $file['name'][$ct];
-            if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
-                $mail->addAttachment($uploadfile, $filename);
-                $rfile = "Файл $filename прикреплён.";
-            } else {
-                $rfile = "Не удалось прикрепить файл $filename";
-            }
-        }
-    }
 // Отправка сообщения
     $mail->isHTML(true);
     $mail->Subject = $title;
@@ -80,18 +83,19 @@ try {
 
 // Проверяем отравленность сообщения
     if ($mail->send()) {
-        $result = "success";
-        $status = "Сообщение успешно отправлено.";
+        if ($formActive == 1 ) {
+            header('Location: ../onsubscribe.html');
+        } else {
+            header('Location: ../thankyou.html');
+        }
     } else {
         $result = "error";
         $status = "Сообщение не было отправлено.";
+		echo "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo} <br>";
     }
 
 } catch (Exception $e) {
     $result = "error";
-    $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
+    $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}<br>";
+    echo $mail->ErrorInfo . "<br>";
 }
-echo $mail->ErrorInfo."<br>";
-
-// Отображение результата
-echo "result: " . $result . "<br>resultfile: " . $rfile . "<br>status: " . $status;
