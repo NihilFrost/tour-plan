@@ -46,6 +46,24 @@ $(document).ready(function() {
     modalButton.on('click', openModal);
     closeModalButton.on('click', closeModal);
 
+    $(".modal__form").validate({
+        errorClass: "invalid",
+        messages: {
+            name: {
+                required: "Укажите имя",
+                minlength: "Имя не должно быть короче 2 символов",
+            },
+            email: {
+                required: "We need your email address to contact you",
+                email: "Your email address must be in the format of name@domail.com",
+            },
+            phone: {
+                required: "Телефон обязателен",
+            },
+        },
+
+
+    }); // validate
 
 
 }); // jQuery

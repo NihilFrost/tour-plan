@@ -36,10 +36,16 @@ if ((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['messag
 
     $email = $_POST['email'];
 
+
     if ($email=='') {
         echo "<meta http-equiv=\"refresh\" content='0; url=$back'>";
         exit();
     }
+
+    $email = htmlspecialchars($email);  // Преобразуем все символы
+    $email = urldecode($email);         // Декодируем url
+    $email = trim($email);              // Удаляем пробелы вначале и в конце строки
+
 
     $formActive = 1;
     $title = "Подписка";
@@ -67,7 +73,7 @@ try {
     // Настройки вашей почты, с которой пойдёт отправка писем
     $mail->Host = 'ssl://smtp.yandex.ru'; // SMTP сервера вашей почты
     $mail->Username = 'werfoster@yandex.ru'; // Логин на почте
-    $mail->Password = 'пароль'; // Пароль на почте
+    $mail->Password = 'пароль';             // Пароль для приложений
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->setFrom('werfoster@yandex.ru', 'Пётр Васильевич'); // Адрес откуда отправляем письмо
@@ -89,13 +95,16 @@ try {
             header('Location: ../thankyou.html');
         }
     } else {
-        $result = "error";
-        $status = "Сообщение не было отправлено.";
-		echo "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo} <br>";
-    }
+		echo "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}<br><br>";
 
+		foreach ($status as $key => $value) {
+		    echo $key.": ".$value." <br>";
+        }
+    }
 } catch (Exception $e) {
-    $result = "error";
-    $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}<br>";
-    echo $mail->ErrorInfo . "<br>";
+    echo "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}<br><br>";
+
+    foreach ($status as $key => $value) {
+        echo $key.": ".$value." <br>";
+    }
 }
