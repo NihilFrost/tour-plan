@@ -61,6 +61,7 @@ $(document).ready(function() {
                 },
                 phone: {
                     required: "Please enter your phone.",
+                    minlength: "Phone mask: +7 (999) 99 99",
                 },
                 message: {
                     required: "The message field is required.",
@@ -69,5 +70,7 @@ $(document).ready(function() {
             },
         }); // validate
     }); // function
+
+    $('.phone').mask('+7 (999) 99 99');
 
 }); // jQuery
