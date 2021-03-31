@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -20,18 +21,18 @@
     <header class="navbar navbar--mobile_fixed">
         <div class="container">
             <div class="navbar-top">
-                <a href="" class="logo">
+                <a href="" class="logo" data-aos="fade-right" data-aos-delay="300">
                     <img src="img/horizontal-logo.svg" alt="Logo: Best Tour Plan" class="logo__image">
                 </a>
 
-                <form action="#" class="search navbar__search navbar__search--mobile_hidden">
+                <form action="#" class="search navbar__search navbar__search--mobile_hidden" data-aos="fade-right" data-aos-delay="200">
                     <input type="text" class="search__input" placeholder="Search Location" required>
                     <button class="search__button">
                         <img src="img/search.svg" alt="Icon: search">
                     </button>
                 </form>
 
-                <a href="#" class="user navbar__user navbar__user--mobile_hidden">
+                <a href="#" class="user navbar__user navbar__user--mobile_hidden" data-aos="fade-right" data-aos-delay="100">
                     <img src="img/user-avatar.jpg" alt="avatar: Nathan" class="user__avatar">
                     <span class="user__name">Nathan</span>
                 </a>
@@ -135,7 +136,7 @@
 
 
                 <!-- Slider main container -->
-                <div class="swiper-container hotel-slider hotel__slider">
+                <div class="swiper-container hotel-slider hotel__slider" data-aos="fade-right">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
@@ -155,7 +156,7 @@
 
                 <!-- ----------------------------------------------------------------------------- -->
 
-                <div class="hotel-right">
+                <div class="hotel-right" data-aos="fade-left">
                     <div class="booking">
                         <div class="booking__info">
                             <div class="booking__price">
@@ -226,7 +227,7 @@
         <div class="container">
             <h2 class="reviews__title">What people thinks about us</h2>
 
-            <div class="swiper-container reviews-slider">
+            <div class="swiper-container reviews-slider" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="reviews-slider__item">
@@ -296,7 +297,7 @@
             <h2 class="activities__title">Other Activities</h2>
             <div class="activities-wrapper">
 
-                <div class="card activities__card">
+                <div class="card activities__card" data-aos="fade-up" data-aos-delay="100">
                     <img src="img/activity-1.jpg" alt="The curious corner of chamarel" class="card__image">
                     <h3 class="card__title">The curious corner of chamarel</h3>
 
@@ -305,7 +306,7 @@
                 </div>
                 <!-- /.card -->
 
-                <div class="card activities__card">
+                <div class="card activities__card" data-aos="fade-up" data-aos-delay="200">
                     <img src="img/activity-2.jpg" alt="Gymkhana club golf course" class="card__image">
                     <h3 class="card__title">Gymkhana club golf course</h3>
 
@@ -314,7 +315,7 @@
                 </div>
                 <!-- /.card -->
 
-                <div class="card activities__card">
+                <div class="card activities__card" data-aos="fade-up" data-aos-delay="300">
                     <img src="img/activity-3.jpg" alt="Tamarind falls hiking trip - full day" class="card__image">
                     <h3 class="card__title">Tamarind falls hiking trip - full day</h3>
 
@@ -323,7 +324,7 @@
                 </div>
                 <!-- /.card -->
 
-                <div class="card activities__card">
+                <div class="card activities__card" data-aos="fade-up" data-aos-delay="400">
                     <img src="img/activity-4.jpg" alt="The blue marine discovery quest" class="card__image">
                     <h3 class="card__title">The blue marine discovery quest</h3>
 
@@ -486,6 +487,7 @@
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.mask.js"></script>
+    <script src="js/aos.js"></script>
     <script src="js/main.js"></script>
 
 </body>
