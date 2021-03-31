@@ -52,19 +52,19 @@ $(document).ready(function() {
             errorClass: "invalid",
             messages: {
                 name: {
-                    required: "Please enter your name",
-                    minlength: "The name must be at least 2 characters long",
+                    required: "Please enter your name.",
+                    minlength: "The name must be at least 2 characters long.",
                 },
                 email: {
-                    required: "Please enter your e-mail",
-                    email: "Your email address must be in the format of name@domail.com",
+                    required: "Please enter your e-mail.",
+                    email: "Your email address must be in the format of name@domail.com.",
                 },
                 phone: {
-                    required: "Please enter your phone",
+                    required: "Please enter your phone.",
                 },
                 message: {
-                    required: "The message field is required ",
-                    minlength: "The message must be at least 10 characters long"
+                    required: "The message field is required.",
+                    minlength: "The message must be at least 10 characters long."
                 }
             },
         }); // validate
