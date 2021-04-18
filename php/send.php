@@ -6,16 +6,23 @@ require 'phpmailer/Exception.php';
 
 // Переменные, которые отправляет пользователь
 
-$back = $_SERVER['HTTP_REFERER'];
+$email = 'foster18@yandex.ru';      // Куда пришлёт письмо
+
+if((isset($_POST['email']))) {
+    // С модального окна
+    $user_email = $_POST['email'];
+} else {
+    $user_email = "";
+}
 
 if ((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['message']))) {
-//    Если в $_POST отправлены поля name, phone и message:
+//    Если в $_POST отправлены поля name, phone и message или email:
+
 
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $message = $_POST['message'];
     $formActive = 2;
-    $email = 'foster18@yandex.ru';
 
     if (($name=='') || ($phone=='') || ($message=='')) {
         echo "<meta http-equiv=\"refresh\" content='0; url=$back'>";
@@ -27,32 +34,28 @@ if ((isset($_POST['name'])) && (isset($_POST['phone'])) && (isset($_POST['messag
     $body = "
     <h2>Новое обращение</h2>
     <b>Имя:</b> $name<br>
-    <b>Телефон:</b> $phone<br><br>
+    <b>Телефон:</b> $phone<br>
+    <b>Почта:</b> $user_email<br><br>
     <b>Сообщение:</b><br>$message
     ";
 
 }  else if ((isset($_POST['email']))) {
 //    В $_POST пришёл email на подписку
 
-    $email = $_POST['email'];
-
-
     if ($email=='') {
         echo "<meta http-equiv=\"refresh\" content='0; url=$back'>";
         exit();
     }
 
-    $email = htmlspecialchars($email);  // Преобразуем все символы
-    $email = urldecode($email);         // Декодируем url
-    $email = trim($email);              // Удаляем пробелы вначале и в конце строки
-
+//    $email = htmlspecialchars($email);  // Преобразуем все символы
+//    $email = urldecode($email);         // Декодируем url
+//    $email = trim($email);              // Удаляем пробелы вначале и в конце строки
 
     $formActive = 1;
     $title = "Подписка";
     $body = "
-    <h2>Подписка оформлена!</h2>
-    <br>Ваш e-mail был добавлен в базу рассылок. Если это были не вы, 
-    пожалуйста, <a href=$back"."unsubscribe.html>кликните сюда.</a>
+    <h2>Запрос подписки</h2>
+    <br>E-mail: $user_email
     ";
 
 } else {
@@ -73,7 +76,7 @@ try {
     // Настройки вашей почты, с которой пойдёт отправка писем
     $mail->Host = 'ssl://smtp.yandex.ru'; // SMTP сервера вашей почты
     $mail->Username = 'werfoster@yandex.ru'; // Логин на почте
-    $mail->Password = 'пароль';             // Пароль для приложений
+    $mail->Password = 'yuvdbodouldpobao';             // Пароль для приложений
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->setFrom('werfoster@yandex.ru', 'Пётр Васильевич'); // Адрес откуда отправляем письмо
