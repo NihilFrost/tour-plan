@@ -76,7 +76,7 @@ try {
     // Настройки вашей почты, с которой пойдёт отправка писем
     $mail->Host = 'ssl://smtp.yandex.ru'; // SMTP сервера вашей почты
     $mail->Username = 'werfoster@yandex.ru'; // Логин на почте
-    $mail->Password = 'yuvdbodouldpobao';             // Пароль для приложений
+    $mail->Password = 'password';             // Пароль для приложений
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->setFrom('werfoster@yandex.ru', 'Пётр Васильевич'); // Адрес откуда отправляем письмо
