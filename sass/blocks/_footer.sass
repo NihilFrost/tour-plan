@@ -13,7 +13,8 @@
     &__logo
         width: 166px
         grid-row: 1 / 3
-        align-self: stretch
+        align-self: center
+
     &__categories
         grid-row: 1 / 4
     &__social
@@ -24,7 +25,6 @@
             justify-content: space-between
         &-network
             display: flex
-            // align-content: center
             align-items: center
             grid-row: 2 / 4
             grid-column: span 2
@@ -38,6 +38,7 @@
         align-items: center
         justify-content: space-between
         flex-wrap: wrap
+        margin-top: 30px
     &__ul
         padding: 0
         margin: 0
@@ -47,7 +48,7 @@
         font-weight: bold
         font-size: 18px
         line-height: 23px
-        margin: 0 0 16px 0
+        margin: 0 0 10px 0
         text-transform: uppercase
         &--inline
             margin: 0 43px 0 0
@@ -90,3 +91,28 @@
         font-size: 12px
         line-height: 15px
         color: #E0E0E0
+    &-information
+        display: block
+        margin-top: 102px
+        display: flex
+        justify-content: flex-end
+    .legal
+        &-wrapper
+            display: content
+            float: right
+    .button
+        height: 50px
+.information
+    &-wrapper
+        display: flex
+        width: 300px
+        margin-right: 250px
+        flex-shrink: 0
+        &__items
+            flex-grow: 1
+            width: 100%
+        &__item
+            font-size: 12px
+            text-decoration: none
+            color: inherit
+            margin-right: 10px

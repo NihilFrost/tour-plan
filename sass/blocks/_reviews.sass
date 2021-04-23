@@ -1,13 +1,14 @@
 .reviews
-    padding: 40px 0 70px 0
+    padding: 40px 0 20px 0
     &__title
         font-style: normal
         font-weight: bold
-        font-size: 36px
+        font-size: 35px
         line-height: 45px
         text-align: center
         text-transform: uppercase
-        margin-bottom: 70px
+        margin-bottom: 60px
+        margin-top: 0
     &-slider
         &__item
             position: relative
@@ -39,7 +40,7 @@
                 background-repeat: no-repeat
         &__button
             position: absolute
-            top: 50%
+            top: 44%
             transform: translateY(-50%)
             z-index: 10
             width: 30px
@@ -53,10 +54,10 @@
             outline: none
             &--prev
                 background-image: url(../img/arrow-prev-secondary.svg)
-                left: 0
+                left: 11px
             &--next
                 background-image: url(../img/arrow-next-secondary.svg)
-                right: 0
+                right: 11px
         &__profile
             display: flex
             flex-direction: column
@@ -68,7 +69,6 @@
             height: 90px
             border-radius: 50%
             object-fit: cover
-            margin-bottom: 9px
         &__username
             font-style: normal
             font-weight: bold
@@ -83,13 +83,18 @@
             line-height: 13px
             margin-bottom: 4px
         &__rating
+            width: 50px
             display: flex
             align-items: center
+        &__star
+            align-content: space-between
+            margin-right: 4px
         &__text
             max-width: 537px
-            margin: auto
+            // margin: auto
             font-style: normal
             font-weight: normal
             font-size: 12px
             line-height: 160%
             text-align: justify
+            z-index: 1

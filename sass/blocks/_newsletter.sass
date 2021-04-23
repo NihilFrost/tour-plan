@@ -1,6 +1,6 @@
 .newsletter
     position: relative
-    padding: 98px 0 87px 0
+    padding: 80px 0 70px 0
     background-image: url(../img/newsletter-bg.jpg)
     background-repeat: no-repeat
     background-position: center
@@ -34,9 +34,14 @@
             font-weight: 600
             line-height: 45px
             text-transform: uppercase
+    &__form
+        position: relative
+        label.invalid
+            position: absolute
+            z-index: 1
+            top: 57px
 .subscribe
     position: relative
-    overflow: hidden
     width: 355px
     height: 55px
     border-radius: 4px
@@ -51,9 +56,11 @@
         font-weight: 300
         font-size: 14px
         line-height: 18px
+        border-radius: 4px
     &__button
         position: absolute
         min-width: 65px
+        font-size: 12px
         right: 0
         top: 0
         height: 100%
@@ -61,3 +68,4 @@
         background-color: $primary
         color: $light
         cursor: pointer
+        border-radius: 0 4px 4px 0
