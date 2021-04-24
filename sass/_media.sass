@@ -268,6 +268,36 @@
     .map
         width: 100%
 
+/* --------------------------------------------723px-------------------------------------------- */
+// Адаптив для гридов
+
+@media (max-width: 723px)
+    .footer
+        &-wrapper
+            grid-template-columns: 40% 0% 1fr
+        &__categories
+            grid-row: 2 / 3
+            grid-column: span 2
+        &__additional
+            grid-row: 3
+            grid-column: 1 / 4
+        &__contact
+            &-details
+                margin-top: 0
+                grid-row: 4
+                grid-column: 1/4
+        &__legal
+            grid-row: 2
+            grid-column-start: 3
+        &__contact
+            &-form
+                grid-row: 5
+                grid-column: 1
+                width: 540px
+    .legal
+        &-wrapper
+            float: none !important
+
 /* --------------------------------------------680px-------------------------------------------- */
 
 @media (max-width: 680px)
@@ -276,6 +306,32 @@
             flex-direction: column
             align-items: flex-start
 
+/* --------------------------------------------590px-------------------------------------------- */
+
+@media (max-width: 590px)
+    .footer
+        &-wrapper
+            grid-template-columns: 1fr
+        &__social
+            &-network
+                grid-row: 2
+        &__legal
+            grid-row: 3
+            grid-column-start: 1
+        &__additional
+            grid-row: 4
+            grid-column: 1
+        &__categories
+            grid-row: 5
+            grid-column: 1
+        &__contact
+            &-details
+                grid-row: 6
+                grid-column: 1
+            &-form
+                grid-row: 7
+                grid-column: 1/4
+                width: 100%
 /* --------------------------------------------576px-------------------------------------------- */
 
 @media (max-width: 576px)
@@ -311,6 +367,7 @@
     .footer
         &-wrapper
             grid-template-columns: 1fr
+            grid-row-gap: 30px
         &__logo
             grid-row: 1
             grid-column: 1
@@ -319,21 +376,36 @@
                 grid-row: 2
                 grid-column: 1
         &__additional
-            grid-row: 3
-            grid-column: 1
-        &__categories
             grid-row: 4
             grid-column: 1
-        &__legal
+        &__categories
             grid-row: 5
+            grid-column: 1
+        &__legal
+            grid-row: 3
             grid-column: 1
         &__contact
             &-details
                 grid-row: 6
                 grid-column: 1
+                margin-top: 7px
             &-form
                 grid-row: 7
                 grid-column: 1
+                margin-top: 3px
+        &__form
+            margin-top: 18px
+        &__title
+            margin: 0 0 13px 0
+        &__text
+            margin-bottom: 31px
+            margin-top: 30px
+        &__input
+            &-message
+                margin-bottom: 17px
+        &-information
+            margin-top: 25px
+
     .modal
         &__dialog
             width: 90%
@@ -372,50 +444,100 @@
     .modal
         &__dialog
             width: 100%
+    .footer
+        &__input
+            &-group
+                flex-basis: 100%
 
-/* --------------------------------------------320px-------------------------------------------- */
+/* --------------------------------------------330px-------------------------------------------- */
 
 @media (max-width: 320px)
     .container
         max-width: 280px
         margin: auto
-    .swiper
-        &-container
-            height: 180px
-            margin-top: 40px
+    .navbar
+        &-top
+            padding-top: 20px
+            padding-bottom: 30px
+    // .swiper
+    //     &-container
+    //         // 
+    //         border: 1px solid red
+
     .hotel
+        &-slider
+            height: 180px
+            margin-top: 20px
+    .hotel
+        padding-top: 0
         padding-bottom: 40px
-        &-grid
-            border: 1px solid green
+        &-info
+            &__name
+                margin-top: 10px
+        &-right
+            min-height: 0
+            max-height: 400px
+    .booking
+        padding: 25px
+        margin-bottom: 20px
+        &__info
+            margin-bottom: 5px
+    .stars
+        margin-right: 17px
     .map
         height: 172px
-    .loader
-        border: 1px solid red
-//     .reviews
-//         padding-bottom: 0
-//         &-slider
-//             &__button
-//                 top: 32px
-//                 &--prev
-//                     left: 50%
-//                     transform: translate(-50%, 0)
-//                     margin-left: -65px
-//                 &--next
-//                     right: 50%
-//                     margin-right: -65px
-//                     transform: translate(50%, 0)
-//     .activities
-//         &__title
-//             margin-bottom: 36px
-//     .footer
-//         &__social
-//             &-network
-//                 flex-direction: column
-//                 align-items: flex-start
-//         &__title
-//             &--inline
-//                 margin: 0
-//                 margin-bottom: 22px
+    .newsletter
+        padding: 54px 0 83px 0
+        &-title
+            font-size: 20px
+            &__strong
+                font-size: 30px
+    .reviews
+        padding: 40px 0 20px 0
+        &-slider
+            &__button
+                top: 32px
+                &--prev
+                    left: 50%
+                    transform: translate(-50%, 0)
+                    margin-left: -94px
+                &--next
+                    right: 50%
+                    margin-right: -94px
+                    transform: translate(50%, 0)
+            &__item
+                margin: 50px auto 0
+                padding: 0 30px 20px
+        &__title
+            width: 250px
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 35px
+    .activities
+        padding-top: 20px
+        padding-bottom: 55px
+        &__title
+            margin-bottom: 36px
+    .footer
+        &__social
+            &-network
+                flex-direction: column
+                align-items: flex-start
+        &__title
+            &--inline
+                margin: 0
+                margin-bottom: 22px
+        &__under-form
+            flex-wrap: wrap
+        &__button
+            margin-right: 100%
+            margin-top: 15px
+        &__info
+            order: -1
+        &-wrapper
+            grid-row-gap: 30px
+    .card
+        margin-bottom: 18px
 
 /* --------------------------------------------550px-------------------------------------------- */
 
