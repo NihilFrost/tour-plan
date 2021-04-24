@@ -114,6 +114,7 @@
                     <div class="hotel-wrapper">
 
                         <h1 class="hotel-name hotel-info__name">Подписка оформлена!</h1>
+                        <a href="index.html" class="button button-callback"><span class="button-callback-text">На главную</span></a>
 
                     </div>
                     <p class="hotel-description hotel-info__description">
@@ -142,6 +143,7 @@
 
 
                 <div class="footer__list footer__categories">
+
                     <h3 class="footer__title"> All Categories</h3>
 
                     <ul class="footer__ul">
@@ -155,6 +157,8 @@
                         <li class="footer__item"><a href="#" class="footer__link">Rodrigues</a></li>
                     </ul>
 
+
+
                 </div>
                 <!-- /.footer__list -->
                 <div class="footer__list footer__additional">
@@ -163,7 +167,7 @@
                     <ul class="footer__ul">
                         <li class="footer__item"><a href="#" class="footer__link">About Us</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">AHow does it work</a></li>
+                        <li class="footer__item"><a href="#" class="footer__link">How does it work</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Frequently Asced Questions</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Deals.mu loyalty program</a></li>
                         <li class="footer__item"><a href="#" class="footer__link">Promote your Business on BTP</a></li>
@@ -181,15 +185,15 @@
                 </div>
                 <!-- /.footer__social-network -->
                 <div class="footer__list footer__legal">
-
-                    <h3 class="footer__title">Legal Information</h3>
-                    <ul class="footer__ul">
-                        <li class="footer__item"><a href="#" class="footer__link">Terms & Conditions</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Disclaimer</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Cancellation policy</a></li>
-                        <li class="footer__item"><a href="#" class="footer__link">Privacy</a></li>
-                    </ul>
-
+                    <div class="legal-wrapper">
+                        <h3 class="footer__title">Legal Information</h3>
+                        <ul class="footer__ul">
+                            <li class="footer__item"><a href="#" class="footer__link">Terms & Conditions</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Disclaimer</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Cancellation policy</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Privacy</a></li>
+                        </ul>
+                    </div>
 
 
                 </div>
@@ -236,7 +240,7 @@
                 <div class="footer__contact-form">
                     <h3 class="footer__title">Send us a message</h3>
 
-                    <!-- ЕЩЁ ОДНА ФОРМА -->
+                    <!--  ЕЩЁ ОДНА ФОРМА  -->
 
                     <form action="php/send.php" class="form footer__form" method="POST">
                         <div class="footer__input-group">
@@ -250,8 +254,12 @@
                             <textarea class="message footer__message" placeholder="Message*" name="message" required minlength="10"></textarea>
                         </div>
 
-                        <button class="button footer__button" type="submit">Send</button>
-                        <span class="footer__info">* Required Fields</span>
+                        <div class="footer__under-form">
+                            <button class="button footer__button" type="submit">Send</button>
+                            <span class="footer__info">* Required Fields</span>
+
+                        </div>
+
                     </form>
 
                 </div>
@@ -260,6 +268,21 @@
 
             </div>
             <!-- /.footer-wrapper -->
+
+            <div class="footer-information">
+                <div class="information-wrapper">
+                    <div class="information-wrapper__items">
+                        <a href="#" class="information-wrapper__item">Disclaimer</a>
+                        <a href="#" class="information-wrapper__item">Conditions of use</a>
+                        <a href="#" class="information-wrapper__item">Cancellation policy</a>
+                    </div>
+                </div>
+
+                <div class="information-image">
+                    <img src="img/pay.jpg" alt="">
+                </div>
+            </div>
+            <!-- /.footer-information -->
         </div>
         <!-- /.container -->
     </footer>
